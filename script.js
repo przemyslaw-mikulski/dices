@@ -12,7 +12,7 @@ function rollDice() {
 function updateDice(result1, result2) {
     dice1Element.textContent = result1;
     dice2Element.textContent = result2;
-    infoElement.textContent = `Rzuciłeś: ${result1} i ${result2}`;
+    infoElement.textContent = `You rolled: ${result1} and ${result2}`;
 }
 
 // Function to start the rolling animation

@@ -1,11 +1,13 @@
-body {
+]body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 50px;
+    background-color: #f0f0f0;
 }
 
 h1 {
     font-size: 2rem;
+    color: #333;
 }
 
 .dice-container {
@@ -38,6 +40,8 @@ h1 {
 
 .info {
     margin-top: 50px;
+    font-size: 1.2rem;
+    color: #555;
 }
 
 button {
