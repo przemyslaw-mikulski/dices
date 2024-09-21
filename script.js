@@ -3,27 +3,24 @@ let dice2Element = document.getElementById('dice2');
 let infoElement = document.querySelector('.info');
 let rollButton = document.getElementById('rollButton');
 
-// Array to map numbers to dice face icons (from 1 to 6)
-const diceIcons = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
-
 // Function to roll a die (returns a number between 1 and 6)
 function rollDice() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
-// Function to update the dice display with dice face icons
+// Function to update the dice display with the final images
 function updateDice(result1, result2) {
-    dice1Element.textContent = diceIcons[result1 - 1]; // Show dice face for result1
-    dice2Element.textContent = diceIcons[result2 - 1]; // Show dice face for result2
-    infoElement.textContent = `You rolled: ${diceIcons[result1 - 1]} and ${diceIcons[result2 - 1]}`;
+    dice1Element.src = `images/dice${result1}.png`; // Set image for result1
+    dice2Element.src = `images/dice${result2}.png`; // Set image for result2
+    infoElement.textContent = `You rolled: ${result1} and ${result2}`;
 }
 
-// Function to start the rolling animation (showing generic dice icons)
+// Function to start the rolling animation (showing a placeholder image)
 function startRollingAnimation() {
     dice1Element.classList.add('rolling');
     dice2Element.classList.add('rolling');
-    dice1Element.textContent = '🎲'; // Show generic dice icon during roll
-    dice2Element.textContent = '🎲'; // Show generic dice icon during roll
+    dice1Element.src = 'images/dice1.png'; // Placeholder image during roll
+    dice2Element.src = 'images/dice1.png'; // Placeholder image during roll
 }
 
 // Function to stop the rolling animation
@@ -39,8 +36,8 @@ rollButton.addEventListener('click', function() {
 
     // Temporary dice rolling effect during the 1-second animation
     let rollingInterval = setInterval(function() {
-        dice1Element.textContent = '🎲'; // Keep showing the generic dice icon
-        dice2Element.textContent = '🎲'; // Keep showing the generic dice icon
+        dice1Element.src = 'images/dice1.png'; // Placeholder during roll
+        dice2Element.src = 'images/dice1.png'; // Placeholder during roll
     }, 100);
 
     // Stop the animation after 1 second and show the final result
@@ -48,7 +45,7 @@ rollButton.addEventListener('click', function() {
         clearInterval(rollingInterval); // Stop the temporary rolling effect
         let finalResult1 = rollDice(); // Final result for first die
         let finalResult2 = rollDice(); // Final result for second die
-        updateDice(finalResult1, finalResult2); // Update the dice with final face icons
+        updateDice(finalResult1, finalResult2); // Update the dice with final images
         stopRollingAnimation(); // Stop the rolling animation
     }, 1000); // Animation duration (1 second)
 });
