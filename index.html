@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rzut Kostką</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .dice {
+            font-size: 10rem;
+            margin: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .rolling {
+            animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .info {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Potrząśnij telefonem, aby rzucić kostkami!</h1>
+    <div class="dice-container">
+        <div id="dice1" class="dice">🎲</div>
+        <div id="dice2" class="dice">🎲</div>
+    </div>
+    <div class="info">Czekam na potrząśnięcie...</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
