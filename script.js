@@ -3,35 +3,36 @@ let dice2Element = document.getElementById('dice2');
 let infoElement = document.querySelector('.info');
 let rollButton = document.getElementById('rollButton');
 
-// Funkcja losująca wynik kostki (od 1 do 6)
+// Function to roll a die (returns a number between 1 and 6)
 function rollDice() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
-// Funkcja aktualizująca wyświetlanie wyniku na stronie
+// Function to update the dice display
 function updateDice(result1, result2) {
     dice1Element.textContent = result1;
     dice2Element.textContent = result2;
     infoElement.textContent = `Rzuciłeś: ${result1} i ${result2}`;
 }
 
-// Funkcja do rozpoczęcia animacji rzutu kostką
+// Function to start the rolling animation
 function startRollingAnimation() {
     dice1Element.classList.add('rolling');
     dice2Element.classList.add('rolling');
 }
 
-// Funkcja do zatrzymania animacji rzutu kostką
+// Function to stop the rolling animation
 function stopRollingAnimation() {
     dice1Element.classList.remove('rolling');
     dice2Element.classList.remove('rolling');
 }
 
-// Event listener na przycisku do rzutu kostkami
+// Event listener for the roll button
 rollButton.addEventListener('click', function() {
+    // Start rolling animation
     startRollingAnimation();
 
-    // Losowanie wyników przez 1 sekundę
+    // Generate random dice numbers during the 1-second roll animation
     let rollingInterval = setInterval(function() {
         let tempResult1 = rollDice();
         let tempResult2 = rollDice();
@@ -39,12 +40,12 @@ rollButton.addEventListener('click', function() {
         dice2Element.textContent = tempResult2;
     }, 100);
 
-    // Po 1 sekundzie zatrzymujemy animację i wyświetlamy ostateczny wynik
+    // Stop the animation after 1 second and show the final result
     setTimeout(function() {
-        clearInterval(rollingInterval); // Zatrzymanie losowego wyświetlania
-        let finalResult1 = rollDice(); // Ostateczny wynik pierwszej kostki
-        let finalResult2 = rollDice(); // Ostateczny wynik drugiej kostki
-        updateDice(finalResult1, finalResult2); // Aktualizacja wyniku na ekranie
-        stopRollingAnimation(); // Zatrzymanie animacji
-    }, 1000);
+        clearInterval(rollingInterval); // Stop random number generation
+        let finalResult1 = rollDice(); // Final result for first die
+        let finalResult2 = rollDice(); // Final result for second die
+        updateDice(finalResult1, finalResult2); // Update the dice display
+        stopRollingAnimation(); // Stop the animation
+    }, 1000); // Animation duration (1 second)
 });
