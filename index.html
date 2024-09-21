@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rzut Kostką</title>
+    <title>Gra w Kostki</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,15 +42,24 @@
         .info {
             margin-top: 50px;
         }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>Potrząśnij telefonem, aby rzucić kostkami!</h1>
+    <h1>Rzuć kostkami!</h1>
     <div class="dice-container">
         <div id="dice1" class="dice">🎲</div>
         <div id="dice2" class="dice">🎲</div>
     </div>
-    <div class="info">Czekam na potrząśnięcie...</div>
+    <div class="info">Kliknij przycisk, aby rzucić kostkami.</div>
+    
+    <!-- Przycisk do rzutu kostkami -->
+    <button id="rollButton">Rzuć kostkami</button>
 
     <script src="script.js"></script>
 </body>
